@@ -11,18 +11,23 @@ export default class ToDo extends React.Component {
   }
 
   render() {
+    const shadowIndex = this.props.colorIndex * 0.05;
     let style = {
       backgroundColor: "dodgerBlue",
       color: "white",
       padding: "25px 20px",
-      boxShadow: "inset 0px 0px 0px 100px rgba(0,0,0,0)",
+      boxShadow: "inset 0px 0px 0px 100px rgba(0,0,0," + shadowIndex + ")",
     };
 
-    style.boxShadow =
-      "inset 0px 0px 0px 100px rgba(0,0,0," + this.props.index * 0.1 + ")";
+    let styleCompleted = {
+      textDecoration: "line-through",
+      color: "rgba(255,255,255, 0.5)",
+      backgroundColor: "#333333",
+      boxShadow: "none",
+    };
+
     if (this.props.completed) {
-      style.textDecoration = "line-through";
-      style.color = "rgba(255,255,255, 0.5)";
+      style = { ...style, ...styleCompleted };
     }
     return (
       <div style={style} onClick={this.onClick}>

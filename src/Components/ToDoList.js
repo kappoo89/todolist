@@ -1,4 +1,5 @@
 import React from "react";
+import FlipMove from "react-flip-move";
 
 import ToDo from "./ToDo";
 
@@ -22,19 +23,20 @@ export default class ToDoList extends React.Component {
   render() {
     const datas = this.props.datas;
     return (
-      <div style={style}>
+      <FlipMove style={style}>
         {datas.map((elem, key) => {
           return (
             <ToDo
-              key={key}
-              index={key}
+              key={elem.index}
+              index={elem.index}
+              colorIndex={key}
               content={elem.content}
               completed={elem.completed}
               onClick={this.handleToDoStatus}
             />
           );
         })}
-      </div>
+      </FlipMove>
     );
   }
 }
