@@ -8,13 +8,13 @@ Use `localStorage.clear()` to clear all your data.
 
 Fell free to fork and edit.
 
-###Install
+### Install
 
 ### `npm install`
 
 Install all node modules and dependecies
 
-###Run
+### Run
 
 ### `npm start`
 
@@ -27,13 +27,13 @@ You will also see any lint errors in the console.
 ## Special thanks
 
 Here below there are some links to the tutorials that help me out:
-[https://it.reactjs.org/docs/hello-world.html](https://it.reactjs.org/docs/hello-world.html)
-[https://it.reactjs.org/tutorial/tutorial.html](https://it.reactjs.org/tutorial/tutorial.html)
-[https://scrimba.com/course/glearnreact/enrolled](https://scrimba.com/course/glearnreact/enrolled)
+ - [https://it.reactjs.org/docs/hello-world.html](https://it.reactjs.org/docs/hello-world.html)
+ - [https://it.reactjs.org/tutorial/tutorial.html](https://it.reactjs.org/tutorial/tutorial.html)
+ - [https://scrimba.com/course/glearnreact/enrolled](https://scrimba.com/course/glearnreact/enrolled)
 
 Another special thanks goes to:
-[https://github.com/joshwcomeau/react-flip-move](https://github.com/joshwcomeau/react-flip-move)
-[https://github.com/sandstreamdev/react-swipeable-list](https://github.com/sandstreamdev/react-swipeable-list)
+ - [https://github.com/joshwcomeau/react-flip-move](https://github.com/joshwcomeau/react-flip-move)
+ - [https://github.com/sandstreamdev/react-swipeable-list](https://github.com/sandstreamdev/react-swipeable-list)
 
 ---
 
