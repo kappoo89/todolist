@@ -10,13 +10,13 @@ Fell free to fork and edit.
 
 ### Install
 
-### `npm install`
+#### `npm install`
 
 Install all node modules and dependecies
 
 ### Run
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
