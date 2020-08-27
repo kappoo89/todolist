@@ -23,6 +23,7 @@ export default class NewToDo extends React.Component {
       textAlign: "center",
       borderRadius: 1000,
       bottom: 10,
+      cursor: "pointer",
       right: 10,
       boxShadow: "0px 2px 5px 0px rgba(0,0,0,0.25)",
     };

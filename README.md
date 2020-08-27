@@ -1,6 +1,8 @@
 # To Do List
 
 This is a simple **To Do List** made with React in a couple of days.
+This app is designed for a mobile view but it work also on desktop screens.
+For a better experience turn on the device toolbar for chrome (⌘ ⇧ m)
 
 Datas are saved locally in your `localStorage`.
 
@@ -27,13 +29,15 @@ You will also see any lint errors in the console.
 ## Special thanks
 
 Here below there are some links to the tutorials that help me out:
- - [https://it.reactjs.org/docs/hello-world.html](https://it.reactjs.org/docs/hello-world.html)
- - [https://it.reactjs.org/tutorial/tutorial.html](https://it.reactjs.org/tutorial/tutorial.html)
- - [https://scrimba.com/course/glearnreact/enrolled](https://scrimba.com/course/glearnreact/enrolled)
+
+- [https://it.reactjs.org/docs/hello-world.html](https://it.reactjs.org/docs/hello-world.html)
+- [https://it.reactjs.org/tutorial/tutorial.html](https://it.reactjs.org/tutorial/tutorial.html)
+- [https://scrimba.com/course/glearnreact/enrolled](https://scrimba.com/course/glearnreact/enrolled)
 
 Another special thanks goes to:
- - [https://github.com/joshwcomeau/react-flip-move](https://github.com/joshwcomeau/react-flip-move)
- - [https://github.com/sandstreamdev/react-swipeable-list](https://github.com/sandstreamdev/react-swipeable-list)
+
+- [https://github.com/joshwcomeau/react-flip-move](https://github.com/joshwcomeau/react-flip-move)
+- [https://github.com/sandstreamdev/react-swipeable-list](https://github.com/sandstreamdev/react-swipeable-list)
 
 ---
 

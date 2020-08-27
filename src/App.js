@@ -6,7 +6,6 @@ import NewToDo from "./Components/NewToDo";
 
 // import datas from "./fakeDatas";
 let datas = JSON.parse(localStorage.getItem("myData"));
-console.log("datas", datas);
 
 const style = {
   width: "100%",
@@ -65,7 +64,6 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("salvo", this.state.datas);
     localStorage.setItem("myData", JSON.stringify(this.state.datas));
   }
 
