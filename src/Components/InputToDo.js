@@ -3,6 +3,27 @@ import React from "react";
 export default class ImputToDo extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { value: "" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.state.value === "") {
+      this.props.exitInputMode();
+    } else {
+      this.props.addNewToDo(this.state.value);
+      this.setState({ value: "" });
+    }
+  }
+
+  componentDidMount() {
+    this.nameInput.focus();
   }
 
   render() {
@@ -13,7 +34,21 @@ export default class ImputToDo extends React.Component {
       border: 0,
       fontSize: 16,
       color: "white",
+      width: "-webkit-fill-available",
     };
-    return <input style={style} />;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          ref={(input) => {
+            this.nameInput = input;
+          }}
+          style={style}
+          placeholder="write here your task"
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+      </form>
+    );
   }
 }

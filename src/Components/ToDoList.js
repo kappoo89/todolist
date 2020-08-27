@@ -15,20 +15,32 @@ export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.handleToDoStatus = this.handleToDoStatus.bind(this);
+    this.addNewToDo = this.addNewToDo.bind(this);
+    this.exitInputMode = this.exitInputMode.bind(this);
   }
 
   handleToDoStatus(i) {
     this.props.handleToDoStatus(i);
   }
 
+  addNewToDo(data) {
+    this.props.addNewToDo(data);
+  }
+
+  exitInputMode() {
+    this.props.exitInputMode();
+  }
+
   render() {
     const datas = this.props.datas;
-    if (this.props.inputMode) {
-      // style.boxShadow = "inset 0px 0px 0px 100px rgba(0,0,0,0.5)";
-    }
     return (
       <FlipMove style={style}>
-        {this.props.inputMode && <InputToDo />}
+        {this.props.inputMode && (
+          <InputToDo
+            addNewToDo={this.addNewToDo}
+            exitInputMode={this.exitInputMode}
+          />
+        )}
         {datas.map((elem, key) => {
           return (
             <ToDo
@@ -38,6 +50,7 @@ export default class ToDoList extends React.Component {
               text={elem.text}
               completed={elem.completed}
               onClick={this.handleToDoStatus}
+              inputMode={this.props.inputMode}
             />
           );
         })}

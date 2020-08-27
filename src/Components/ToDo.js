@@ -36,7 +36,6 @@ export default class ToDo extends React.Component {
       cursor: "pointer",
       boxShadow: "inset 0px 0px 0px 100px rgba(0,0,0," + shadowIndex + ")",
     };
-
     let styleCompleted = {
       textDecoration: "line-through",
       color: "rgba(255,255,255, 0.5)",
@@ -46,6 +45,12 @@ export default class ToDo extends React.Component {
 
     if (this.props.completed) {
       style = { ...style, ...styleCompleted };
+    }
+
+    if (this.props.inputMode) {
+      style.boxShadow = "none";
+      style.backgroundColor = "#333333";
+      style.color = "rgba(255, 255, 255, 0.5)";
     }
 
     if (this.state.progress > 0) {
@@ -60,6 +65,7 @@ export default class ToDo extends React.Component {
 
     return (
       <SwipeableListItem
+        blockSwipe={this.props.inputMode}
         swipeStartThreshold={15}
         threshold={0.25}
         onSwipeProgress={this.onSwipe}

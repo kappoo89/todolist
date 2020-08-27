@@ -24,11 +24,14 @@ export default class NewToDo extends React.Component {
       borderRadius: 1000,
       bottom: 10,
       right: 10,
-
       boxShadow: "0px 2px 5px 0px rgba(0,0,0,0.25)",
     };
     return (
-      <div onClick={this.onClick} style={style}>
+      <div
+        onClick={this.onClick}
+        style={style}
+        className={this.props.inputMode ? "rotatePlusToCross" : ""}
+      >
         +
       </div>
     );

@@ -15,6 +15,29 @@ input {
   outline: 0;
 }
 
+input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 .swipeable-list-item {
   min-height: 72px;
+}
+
+.inputMode {
+  background-color: red;
+}
+
+.rotatePlusToCross {
+  animation-name: rotate45Deg;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate45Deg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
 }

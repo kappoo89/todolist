@@ -36,9 +36,17 @@ export default class App extends React.Component {
     };
     this.handleToDoStatus = this.handleToDoStatus.bind(this);
     this.newToDo = this.newToDo.bind(this);
+    this.addNewToDo = this.addNewToDo.bind(this);
   }
 
   handleToDoStatus(i) {
+    if (this.state.inputMode) {
+      this.setState({
+        inputMode: false,
+      });
+      return;
+    }
+
     let datasToUpdate = _.map([...this.state.datas], (item, key) => {
       if (item.id === i) {
         item.completed = !item.completed;
@@ -51,14 +59,20 @@ export default class App extends React.Component {
     });
   }
 
+  addNewToDo(data) {
+    const num = this.state.datas.length;
+    this.setState({
+      datas: [{ id: num, text: data, completed: false }, ...this.state.datas],
+    });
+  }
+
   newToDo() {
-    // const num = this.state.datas.length;
-    // this.setState({
-    //   datas: [
-    //     { id: num, text: "newToDo", completed: false },
-    //     ...this.state.datas,
-    //   ],
-    // });
+    if (this.state.inputMode) {
+      this.setState({
+        inputMode: false,
+      });
+      return;
+    }
     this.setState({
       inputMode: true,
     });
@@ -71,8 +85,10 @@ export default class App extends React.Component {
           datas={this.state.datas}
           handleToDoStatus={this.handleToDoStatus}
           inputMode={this.state.inputMode}
+          addNewToDo={this.addNewToDo}
+          exitInputMode={this.newToDo}
         />
-        <NewToDo newToDo={this.newToDo} />
+        <NewToDo newToDo={this.newToDo} inputMode={this.state.inputMode} />
       </div>
     );
   }
