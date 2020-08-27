@@ -8,13 +8,13 @@ Use `localStorage.clear()` to clear all your data.
 
 Fell free to fork and edit.
 
-##Install
+###Install
 
 ### `npm install`
 
 Install all node modules and dependecies
 
-##Run
+###Run
 
 ### `npm start`
 
