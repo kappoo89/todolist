@@ -2,8 +2,9 @@ import React from "react";
 import FlipMove from "react-flip-move";
 
 import ToDo from "./ToDo";
+import InputToDo from "./InputToDo";
 
-const style = {
+let style = {
   display: "flex",
   height: "100%",
   width: "100%",
@@ -22,15 +23,19 @@ export default class ToDoList extends React.Component {
 
   render() {
     const datas = this.props.datas;
+    if (this.props.inputMode) {
+      // style.boxShadow = "inset 0px 0px 0px 100px rgba(0,0,0,0.5)";
+    }
     return (
       <FlipMove style={style}>
+        {this.props.inputMode && <InputToDo />}
         {datas.map((elem, key) => {
           return (
             <ToDo
-              key={elem.index}
-              index={elem.index}
+              key={elem.id}
+              id={elem.id}
               colorIndex={key}
-              content={elem.content}
+              text={elem.text}
               completed={elem.completed}
               onClick={this.handleToDoStatus}
             />

@@ -4,23 +4,17 @@ import _ from "lodash";
 import ToDoList from "./Components/ToDoList";
 import NewToDo from "./Components/NewToDo";
 
+import datas from "./fakeDatas";
+
 const style = {
   width: "100%",
   height: "100%",
   backgroundColor: "#333333",
 };
 
-let datas = [
-  { index: 4, content: "Tokio", completed: false },
-  { index: 3, content: "New York", completed: false },
-  { index: 2, content: "London", completed: false },
-  { index: 1, content: "Paris", completed: false },
-  { index: 0, content: "Moscow", completed: false },
-];
-
-function reorderTask(datas, index) {
+function reorderTask(datas, id) {
   let changedTask = _.remove(datas, function (n) {
-    return n.index === index;
+    return n.id === id;
   });
   if (changedTask[0].completed) {
     datas = [...datas, ...changedTask];
@@ -38,6 +32,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       datas: datas,
+      inputMode: false,
     };
     this.handleToDoStatus = this.handleToDoStatus.bind(this);
     this.newToDo = this.newToDo.bind(this);
@@ -45,7 +40,7 @@ export default class App extends React.Component {
 
   handleToDoStatus(i) {
     let datasToUpdate = _.map([...this.state.datas], (item, key) => {
-      if (item.index === i) {
+      if (item.id === i) {
         item.completed = !item.completed;
       }
       return item;
@@ -57,12 +52,15 @@ export default class App extends React.Component {
   }
 
   newToDo() {
-    const num = this.state.datas.length;
+    // const num = this.state.datas.length;
+    // this.setState({
+    //   datas: [
+    //     { id: num, text: "newToDo", completed: false },
+    //     ...this.state.datas,
+    //   ],
+    // });
     this.setState({
-      datas: [
-        { index: num, content: "newToDo", completed: false },
-        ...this.state.datas,
-      ],
+      inputMode: true,
     });
   }
 
@@ -72,6 +70,7 @@ export default class App extends React.Component {
         <ToDoList
           datas={this.state.datas}
           handleToDoStatus={this.handleToDoStatus}
+          inputMode={this.state.inputMode}
         />
         <NewToDo newToDo={this.newToDo} />
       </div>

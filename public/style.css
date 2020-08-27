@@ -7,4 +7,14 @@ body,
   border: 0;
   margin: 0;
   background-color: #333;
+  font-family: "OpenSans";
+}
+
+input {
+  font-family: "OpenSans";
+  outline: 0;
+}
+
+.swipeable-list-item {
+  min-height: 72px;
 }
