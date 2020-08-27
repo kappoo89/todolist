@@ -4,7 +4,9 @@ import _ from "lodash";
 import ToDoList from "./Components/ToDoList";
 import NewToDo from "./Components/NewToDo";
 
-import datas from "./fakeDatas";
+// import datas from "./fakeDatas";
+let datas = JSON.parse(localStorage.getItem("myData"));
+console.log("datas", datas);
 
 const style = {
   width: "100%",
@@ -12,26 +14,11 @@ const style = {
   backgroundColor: "#333333",
 };
 
-function reorderTask(datas, id) {
-  let changedTask = _.remove(datas, function (n) {
-    return n.id === id;
-  });
-  if (changedTask[0].completed) {
-    datas = [...datas, ...changedTask];
-  } else {
-    let notCompletedTasks = _.remove(datas, function (n) {
-      return !n.completed;
-    });
-    datas = [...notCompletedTasks, ...changedTask, ...datas];
-  }
-  return datas;
-}
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      datas: datas,
+      datas: datas || [],
       inputMode: false,
     };
     this.handleToDoStatus = this.handleToDoStatus.bind(this);
@@ -53,7 +40,6 @@ export default class App extends React.Component {
       }
       return item;
     });
-
     this.setState({
       datas: reorderTask([...datasToUpdate], i),
     });
@@ -61,7 +47,7 @@ export default class App extends React.Component {
 
   addNewToDo(data) {
     const num = this.state.datas.length;
-    this.setState({
+    const newDatas = this.setState({
       datas: [{ id: num, text: data, completed: false }, ...this.state.datas],
     });
   }
@@ -78,6 +64,11 @@ export default class App extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log("salvo", this.state.datas);
+    localStorage.setItem("myData", JSON.stringify(this.state.datas));
+  }
+
   render() {
     return (
       <div style={style}>
@@ -92,4 +83,19 @@ export default class App extends React.Component {
       </div>
     );
   }
+}
+
+function reorderTask(datas, id) {
+  let changedTask = _.remove(datas, function (n) {
+    return n.id === id;
+  });
+  if (changedTask[0].completed) {
+    datas = [...datas, ...changedTask];
+  } else {
+    let notCompletedTasks = _.remove(datas, function (n) {
+      return !n.completed;
+    });
+    datas = [...notCompletedTasks, ...changedTask, ...datas];
+  }
+  return datas;
 }
