@@ -41,7 +41,7 @@ export default class App extends React.Component {
 
   addNewToDo = (data) => {
     const num = this.state.datas.length;
-    const newDatas = this.setState({
+    this.setState({
       datas: [{ id: num, text: data, completed: false }, ...this.state.datas],
     });
   };

@@ -31,7 +31,6 @@ export default class ImputToDo extends React.Component {
       padding: "25px 20px",
       border: 0,
       fontSize: 16,
-      color: "white",
       width: "-webkit-fill-available",
     };
     return (
