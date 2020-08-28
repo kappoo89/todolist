@@ -3,12 +3,11 @@ import React from "react";
 export default class NewToDo extends React.Component {
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
+  onClick = () => {
     this.props.newToDo();
-  }
+  };
 
   render() {
     const style = {

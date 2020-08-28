@@ -5,26 +5,23 @@ import "@sandstreamdev/react-swipeable-list/dist/styles.css";
 export default class ToDo extends React.Component {
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-    this.onSwipe = this.onSwipe.bind(this);
-    this.onSwipeEnd = this.onSwipeEnd.bind(this);
     this.state = {
       progress: 0,
     };
   }
 
-  onClick() {
+  onClick = () => {
     this.props.onClick(this.props.id);
-  }
+  };
 
-  onSwipe(progress) {
+  onSwipe = (progress) => {
     this.setState({ progress: progress });
-  }
+  };
 
-  onSwipeEnd() {
+  onSwipeEnd = () => {
     this.props.onClick(this.props.id);
     this.setState({ progress: 0 });
-  }
+  };
 
   render() {
     const shadowIndex = this.props.colorIndex * 0.05;

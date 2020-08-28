@@ -14,22 +14,19 @@ let style = {
 export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
-    this.handleToDoStatus = this.handleToDoStatus.bind(this);
-    this.addNewToDo = this.addNewToDo.bind(this);
-    this.exitInputMode = this.exitInputMode.bind(this);
   }
 
-  handleToDoStatus(i) {
+  handleToDoStatus = (i) => {
     this.props.handleToDoStatus(i);
-  }
+  };
 
-  addNewToDo(data) {
+  addNewToDo = (data) => {
     this.props.addNewToDo(data);
-  }
+  };
 
-  exitInputMode() {
+  exitInputMode = () => {
     this.props.exitInputMode();
-  }
+  };
 
   render() {
     const datas = this.props.datas;

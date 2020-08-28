@@ -4,15 +4,13 @@ export default class ImputToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.value === "") {
       this.props.exitInputMode();
@@ -20,7 +18,7 @@ export default class ImputToDo extends React.Component {
       this.props.addNewToDo(this.state.value);
       this.setState({ value: "" });
     }
-  }
+  };
 
   componentDidMount() {
     this.nameInput.focus();

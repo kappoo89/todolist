@@ -4,7 +4,6 @@ import _ from "lodash";
 import ToDoList from "./Components/ToDoList";
 import NewToDo from "./Components/NewToDo";
 
-// import datas from "./fakeDatas";
 let datas = JSON.parse(localStorage.getItem("myData"));
 
 const style = {
@@ -20,19 +19,15 @@ export default class App extends React.Component {
       datas: datas || [],
       inputMode: false,
     };
-    this.handleToDoStatus = this.handleToDoStatus.bind(this);
-    this.newToDo = this.newToDo.bind(this);
-    this.addNewToDo = this.addNewToDo.bind(this);
   }
 
-  handleToDoStatus(i) {
+  handleToDoStatus = (i) => {
     if (this.state.inputMode) {
       this.setState({
         inputMode: false,
       });
       return;
     }
-
     let datasToUpdate = _.map([...this.state.datas], (item, key) => {
       if (item.id === i) {
         item.completed = !item.completed;
@@ -42,16 +37,16 @@ export default class App extends React.Component {
     this.setState({
       datas: reorderTask([...datasToUpdate], i),
     });
-  }
+  };
 
-  addNewToDo(data) {
+  addNewToDo = (data) => {
     const num = this.state.datas.length;
     const newDatas = this.setState({
       datas: [{ id: num, text: data, completed: false }, ...this.state.datas],
     });
-  }
+  };
 
-  newToDo() {
+  newToDo = () => {
     if (this.state.inputMode) {
       this.setState({
         inputMode: false,
@@ -61,7 +56,7 @@ export default class App extends React.Component {
     this.setState({
       inputMode: true,
     });
-  }
+  };
 
   componentDidUpdate() {
     localStorage.setItem("myData", JSON.stringify(this.state.datas));
